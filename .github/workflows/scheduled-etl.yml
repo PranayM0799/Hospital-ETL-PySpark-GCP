@@ -1,0 +1,133 @@
+name: Scheduled ETL Pipeline
+
+on:
+  schedule:
+    # Run every day at 2 AM UTC (adjust timezone as needed)
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+
+env:
+  PROJECT_ID: pyspark-469619
+  REGION: us-central1
+  ZONE: us-central1-a
+
+jobs:
+  scheduled-etl:
+    name: Run Scheduled ETL
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Google Cloud CLI
+        uses: google-github-actions/setup-gcloud@v2
+        with:
+          service_account_key: ${{ secrets.GCP_SA_KEY }}
+          project_id: ${{ env.PROJECT_ID }}
+
+      - name: Authenticate to Google Cloud
+        run: gcloud auth activate-service-account --key-file=${{ secrets.GCP_SA_KEY }}
+
+      - name: Configure gcloud
+        run: |
+          gcloud config set project ${{ env.PROJECT_ID }}
+          gcloud config set compute/region ${{ env.REGION }}
+          gcloud config set compute/zone ${{ env.ZONE }}
+
+      - name: Get existing infrastructure info
+        id: get-info
+        run: |
+          # Get bucket names from existing infrastructure
+          RAW_BUCKET=$(gcloud storage buckets list --filter="name:hospital-raw-data" --format="value(name)" | head -1)
+          PROCESSED_BUCKET=$(gcloud storage buckets list --filter="name:hospital-processed-data" --format="value(name)" | head -1)
+          
+          echo "raw_bucket=$RAW_BUCKET" >> $GITHUB_OUTPUT
+          echo "processed_bucket=$PROCESSED_BUCKET" >> $GITHUB_OUTPUT
+          echo "dataset_id=hospital_data" >> $GITHUB_OUTPUT
+
+      - name: Upload latest data to GCS
+        run: |
+          gsutil cp data/raw/patients.csv gs://${{ steps.get-info.outputs.raw_bucket }}/data/raw/
+          gsutil cp data/raw/treatments.csv gs://${{ steps.get-info.outputs.raw_bucket }}/data/raw/
+          gsutil cp "data/raw/hospital data analysis.csv" gs://${{ steps.get-info.outputs.raw_bucket }}/data/raw/
+          gsutil cp run_etl.py gs://${{ steps.get-info.outputs.processed_bucket }}/scripts/
+
+      - name: Create Dataproc Cluster
+        run: |
+          gcloud dataproc clusters create hospital-etl-cluster \
+            --region=${{ env.REGION }} \
+            --zone=${{ env.ZONE }} \
+            --master-machine-type=n1-standard-2 \
+            --master-boot-disk-size=50GB \
+            --num-workers=2 \
+            --worker-machine-type=n1-standard-2 \
+            --worker-boot-disk-size=50GB \
+            --image-version=2.1-debian11 \
+            --optional-components=JUPYTER \
+            --enable-component-gateway \
+            --metadata="PIP_PACKAGES=google-cloud-storage google-cloud-bigquery pyspark==3.4.0" \
+            --service-account=dataproc-sa@${{ env.PROJECT_ID }}.iam.gserviceaccount.com \
+            --project=${{ env.PROJECT_ID }}
+
+      - name: Run PySpark ETL Job
+        run: |
+          gcloud dataproc jobs submit pyspark gs://${{ steps.get-info.outputs.processed_bucket }}/scripts/run_etl.py \
+            --cluster=hospital-etl-cluster \
+            --region=${{ env.REGION }} \
+            --project=${{ env.PROJECT_ID }} \
+            --jars=gs://spark-lib/bigquery/spark-bigquery-with-dependencies_2.12-0.28.0.jar \
+            -- \
+            --project-id=${{ env.PROJECT_ID }} \
+            --raw-bucket=${{ steps.get-info.outputs.raw_bucket }} \
+            --dataset-id=${{ steps.get-info.outputs.dataset_id }}
+
+      - name: Verify ETL Results
+        run: |
+          echo "📊 ETL Results:"
+          bq query --use_legacy_sql=false "SELECT COUNT(*) as total_patients FROM \`${{ env.PROJECT_ID }}.hospital_data.patients\`"
+          bq query --use_legacy_sql=false "SELECT COUNT(*) as total_treatments FROM \`${{ env.PROJECT_ID }}.hospital_data.treatments\`"
+          bq query --use_legacy_sql=false "SELECT COUNT(*) as total_analysis FROM \`${{ env.PROJECT_ID }}.hospital_data.hospital_analysis\`"
+
+      - name: Generate ETL Report
+        run: |
+          echo "📈 ETL Report - $(date)" > etl_report.txt
+          echo "=================================" >> etl_report.txt
+          echo "Project: ${{ env.PROJECT_ID }}" >> etl_report.txt
+          echo "Region: ${{ env.REGION }}" >> etl_report.txt
+          echo "Execution Time: $(date)" >> etl_report.txt
+          echo "" >> etl_report.txt
+          
+          # Add record counts
+          PATIENT_COUNT=$(bq query --use_legacy_sql=false --format=csv "SELECT COUNT(*) FROM \`${{ env.PROJECT_ID }}.hospital_data.patients\`" | tail -n +2)
+          TREATMENT_COUNT=$(bq query --use_legacy_sql=false --format=csv "SELECT COUNT(*) FROM \`${{ env.PROJECT_ID }}.hospital_data.treatments\`" | tail -n +2)
+          ANALYSIS_COUNT=$(bq query --use_legacy_sql=false --format=csv "SELECT COUNT(*) FROM \`${{ env.PROJECT_ID }}.hospital_data.hospital_analysis\`" | tail -n +2)
+          
+          echo "Record Counts:" >> etl_report.txt
+          echo "- Patients: $PATIENT_COUNT" >> etl_report.txt
+          echo "- Treatments: $TREATMENT_COUNT" >> etl_report.txt
+          echo "- Analysis Records: $ANALYSIS_COUNT" >> etl_report.txt
+          
+          # Upload report to GCS
+          gsutil cp etl_report.txt gs://${{ steps.get-info.outputs.processed_bucket }}/reports/etl_report_$(date +%Y%m%d_%H%M%S).txt
+
+      - name: Cleanup Dataproc Cluster
+        if: always()
+        run: |
+          gcloud dataproc clusters delete hospital-etl-cluster \
+            --region=${{ env.REGION }} \
+            --project=${{ env.PROJECT_ID }} \
+            --quiet
+
+      - name: Notify Success
+        if: success()
+        run: |
+          echo "✅ Scheduled ETL pipeline completed successfully!"
+          echo "📊 Data processed and loaded to BigQuery"
+          echo "📄 ETL report generated and uploaded to GCS"
+
+      - name: Notify Failure
+        if: failure()
+        run: |
+          echo "❌ Scheduled ETL pipeline failed!"
+          echo "Please check the logs for details"

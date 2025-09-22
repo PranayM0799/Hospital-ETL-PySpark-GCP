@@ -134,13 +134,29 @@ terraform destroy -auto-approve
 - ✅ **Cost-optimized** infrastructure
 - ✅ **Automated deployment** with Terraform
 - ✅ **Sample data** included for testing
+- ✅ **CI/CD Pipeline** with GitHub Actions
+- ✅ **Automated testing** and quality checks
+- ✅ **Scheduled ETL** runs daily
+- ✅ **Security scanning** and monitoring
+
+## 🚀 CI/CD Pipeline
+
+This project includes automated CI/CD workflows:
+
+- **🔄 Deploy**: Automatic deployment on push to main
+- **🧪 Test**: Data quality checks and validation
+- **⏰ Scheduled**: Daily ETL runs at 2 AM UTC
+- **🔒 Security**: Automated vulnerability scanning
+
+See [CI-CD-SETUP.md](CI-CD-SETUP.md) for detailed setup instructions.
 
 ## 🔗 Useful Links
 
 - [BigQuery Console](https://console.cloud.google.com/bigquery)
 - [Cloud Storage Console](https://console.cloud.google.com/storage)
 - [Dataproc Console](https://console.cloud.google.com/dataproc)
+- [GitHub Actions](https://github.com/PranayM0799/Hospital-ETL-PySpark-GCP/actions)
 
 ---
 
-**Built with ❤️ using PySpark, BigQuery, and Google Cloud Platform**
+**Built with ❤️ using PySpark, BigQuery, Google Cloud Platform, and GitHub Actions**
