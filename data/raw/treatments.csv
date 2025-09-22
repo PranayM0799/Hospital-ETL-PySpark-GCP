@@ -1,0 +1,101 @@
+treatment_id,patient_id,treatment_type,treatment_date,doctor_name,treatment_notes,cost,created_at
+T001,P013,Psychotherapy,2025-06-26 15:54:53,Dr. Christopher Lee,Standard psychotherapy procedure,58.00,2025-06-26 15:54:53
+T002,P015,Emergency Procedure,2025-07-25 04:29:53,Dr. Lisa Thompson,Standard emergency procedure procedure,9990.00,2025-07-25 04:29:53
+T003,P028,Blood Test,2025-06-02 12:57:53,Dr. Kevin Walker,Standard blood test procedure,126.00,2025-06-02 12:57:53
+T004,P012,Rehabilitation,2025-06-22 18:15:53,Dr. Christopher Lee,Standard rehabilitation procedure,148.00,2025-06-22 18:15:53
+T005,P016,Lab Work,2025-05-28 19:55:53,Dr. Sarah Williams,Standard lab work procedure,109.00,2025-05-28 19:55:53
+T006,P017,Medication Prescription,2025-06-22 06:13:53,Dr. David Kim,Prescribed medication for allergic reaction,171.00,2025-06-22 06:13:53
+T007,P017,X-Ray,2025-06-21 12:39:53,Dr. Daniel Lewis,Standard x-ray procedure,234.00,2025-06-21 12:39:53
+T008,P042,Rehabilitation,2025-06-06 00:18:53,Dr. Emily Rodriguez,Standard rehabilitation procedure,196.00,2025-06-06 00:18:53
+T009,P018,Blood Test,2025-08-08 13:55:53,Dr. Daniel Lewis,Standard blood test procedure,82.00,2025-08-08 13:55:53
+T010,P024,Emergency Procedure,2025-07-01 04:20:53,Dr. Emily Rodriguez,Standard emergency procedure procedure,8824.00,2025-07-01 04:20:53
+T011,P039,Rehabilitation,2025-07-31 21:33:53,Dr. Stephanie Robinson,Standard rehabilitation procedure,120.00,2025-07-31 21:33:53
+T012,P037,Physical Therapy,2025-06-29 23:42:53,Dr. Lisa Thompson,Standard physical therapy procedure,146.00,2025-06-29 23:42:53
+T013,P016,Lab Work,2025-05-27 17:33:53,Dr. John Smith,Standard lab work procedure,108.00,2025-05-27 17:33:53
+T014,P013,Rehabilitation,2025-06-25 14:32:53,Dr. Sarah Williams,Standard rehabilitation procedure,85.00,2025-06-25 14:32:53
+T015,P033,Rehabilitation,2025-07-26 04:36:53,Dr. Stephanie Robinson,Standard rehabilitation procedure,47.00,2025-07-26 04:36:53
+T016,P031,Follow-up,2025-05-29 17:46:53,Dr. Emily Rodriguez,Standard follow-up procedure,122.00,2025-05-29 17:46:53
+T017,P035,IV Therapy,2025-07-15 13:10:53,Dr. Lisa Thompson,Standard iv therapy procedure,91.00,2025-07-15 13:10:53
+T018,P022,Surgery,2025-07-09 21:47:53,Dr. Emily Rodriguez,Emergency surgery - successful,9086.00,2025-07-09 21:47:53
+T019,P023,Rehabilitation,2025-06-28 20:59:53,Dr. Jennifer Martinez,Standard rehabilitation procedure,126.00,2025-06-28 20:59:53
+T020,P004,Surgery,2025-06-10 19:11:53,Dr. Daniel Lewis,Emergency surgery - successful,7697.00,2025-06-10 19:11:53
+T021,P042,Physical Therapy,2025-06-04 13:43:53,Dr. Daniel Lewis,Standard physical therapy procedure,58.00,2025-06-04 13:43:53
+T022,P048,Lab Work,2025-08-10 10:39:53,Dr. Robert Garcia,Standard lab work procedure,152.00,2025-08-10 10:39:53
+T023,P044,Psychotherapy,2025-06-20 04:54:53,Dr. Amanda White,Standard psychotherapy procedure,43.00,2025-06-20 04:54:53
+T024,P025,Rehabilitation,2025-06-12 03:33:53,Dr. Michael Chen,Standard rehabilitation procedure,143.00,2025-06-12 03:33:53
+T025,P001,Physical Therapy,2025-08-18 14:53:53,Dr. Sarah Williams,Standard physical therapy procedure,43.00,2025-08-18 14:53:53
+T026,P050,Surgery,2025-06-03 18:04:53,Dr. Jennifer Martinez,Emergency surgery - successful,7974.00,2025-06-03 18:04:53
+T027,P005,Surgery,2025-07-17 10:47:53,Dr. Emily Rodriguez,Emergency surgery - successful,10889.00,2025-07-17 10:47:53
+T028,P030,Rehabilitation,2025-08-02 17:25:53,Dr. Daniel Lewis,Standard rehabilitation procedure,97.00,2025-08-02 17:25:53
+T029,P044,Emergency Procedure,2025-06-19 10:57:53,Dr. John Smith,Standard emergency procedure procedure,9411.00,2025-06-19 10:57:53
+T030,P029,Lab Work,2025-07-02 05:38:53,Dr. Sarah Williams,Standard lab work procedure,111.00,2025-07-02 05:38:53
+T031,P048,Emergency Procedure,2025-08-10 01:53:53,Dr. Michael Chen,Standard emergency procedure procedure,10878.00,2025-08-10 01:53:53
+T032,P020,X-Ray,2025-07-09 05:56:53,Dr. Stephanie Robinson,Standard x-ray procedure,143.00,2025-07-09 05:56:53
+T033,P015,Rehabilitation,2025-07-25 20:09:53,Dr. Lisa Thompson,Standard rehabilitation procedure,101.00,2025-07-25 20:09:53
+T034,P002,Lab Work,2025-08-03 10:35:53,Dr. Daniel Lewis,Standard lab work procedure,270.00,2025-08-03 10:35:53
+T035,P008,Physical Therapy,2025-08-15 21:39:53,Dr. Kevin Walker,Standard physical therapy procedure,194.00,2025-08-15 21:39:53
+T036,P036,Rehabilitation,2025-05-30 13:06:53,Dr. Kevin Walker,Standard rehabilitation procedure,164.00,2025-05-30 13:06:53
+T037,P015,Surgery,2025-07-26 03:12:53,Dr. David Kim,Emergency surgery - successful,5855.00,2025-07-26 03:12:53
+T038,P001,Physical Therapy,2025-08-18 07:55:53,Dr. Jennifer Martinez,Standard physical therapy procedure,120.00,2025-08-18 07:55:53
+T039,P002,IV Therapy,2025-08-02 13:19:53,Dr. Daniel Lewis,Standard iv therapy procedure,156.00,2025-08-02 13:19:53
+T040,P023,Physical Therapy,2025-06-28 16:53:53,Dr. James Harris,Standard physical therapy procedure,165.00,2025-06-28 16:53:53
+T041,P025,Medication Prescription,2025-06-12 04:33:53,Dr. Michael Chen,Prescribed medication for arthritis,156.00,2025-06-12 04:33:53
+T042,P038,Blood Test,2025-07-16 14:23:53,Dr. Jennifer Martinez,Standard blood test procedure,97.00,2025-07-16 14:23:53
+T043,P039,Physical Therapy,2025-07-31 23:28:53,Dr. David Kim,Standard physical therapy procedure,103.00,2025-07-31 23:28:53
+T044,P042,X-Ray,2025-06-04 13:49:53,Dr. John Smith,Standard x-ray procedure,207.00,2025-06-04 13:49:53
+T045,P016,Physical Therapy,2025-05-28 00:10:53,Dr. David Kim,Standard physical therapy procedure,90.00,2025-05-28 00:10:53
+T046,P002,Blood Test,2025-08-03 13:56:53,Dr. David Kim,Standard blood test procedure,187.00,2025-08-03 13:56:53
+T047,P007,Blood Test,2025-07-28 11:13:53,Dr. Jennifer Martinez,Standard blood test procedure,107.00,2025-07-28 11:13:53
+T048,P050,Medication Prescription,2025-06-03 04:56:53,Dr. Kevin Walker,Prescribed medication for pneumonia,135.00,2025-06-03 04:56:53
+T049,P032,Rehabilitation,2025-05-30 16:09:53,Dr. Emily Rodriguez,Standard rehabilitation procedure,43.00,2025-05-30 16:09:53
+T050,P020,Rehabilitation,2025-07-09 05:53:53,Dr. Michael Chen,Standard rehabilitation procedure,162.00,2025-07-09 05:53:53
+T051,P014,Physical Therapy,2025-06-14 18:00:53,Dr. Stephanie Robinson,Standard physical therapy procedure,43.00,2025-06-14 18:00:53
+T052,P035,Blood Test,2025-07-14 03:44:53,Dr. Kevin Walker,Standard blood test procedure,122.00,2025-07-14 03:44:53
+T053,P039,IV Therapy,2025-07-30 06:31:53,Dr. Robert Garcia,Standard iv therapy procedure,47.00,2025-07-30 06:31:53
+T054,P016,Blood Test,2025-05-28 07:44:53,Dr. Daniel Lewis,Standard blood test procedure,119.00,2025-05-28 07:44:53
+T055,P032,Emergency Procedure,2025-05-30 12:37:53,Dr. James Harris,Standard emergency procedure procedure,13111.00,2025-05-30 12:37:53
+T056,P022,IV Therapy,2025-07-09 11:37:53,Dr. John Smith,Standard iv therapy procedure,91.00,2025-07-09 11:37:53
+T057,P010,Consultation,2025-06-07 01:35:53,Dr. David Kim,Standard consultation procedure,44.00,2025-06-07 01:35:53
+T058,P050,Consultation,2025-06-02 21:40:53,Dr. Emily Rodriguez,Standard consultation procedure,33.00,2025-06-02 21:40:53
+T059,P031,Blood Test,2025-05-29 19:29:53,Dr. Jennifer Martinez,Standard blood test procedure,95.00,2025-05-29 19:29:53
+T060,P001,Follow-up,2025-08-18 11:10:53,Dr. Jennifer Martinez,Standard follow-up procedure,169.00,2025-08-18 11:10:53
+T061,P028,Consultation,2025-06-03 19:12:53,Dr. Robert Garcia,Standard consultation procedure,47.00,2025-06-03 19:12:53
+T062,P030,IV Therapy,2025-08-01 13:57:53,Dr. John Smith,Standard iv therapy procedure,140.00,2025-08-01 13:57:53
+T063,P026,Rehabilitation,2025-08-04 09:44:53,Dr. Michael Chen,Standard rehabilitation procedure,126.00,2025-08-04 09:44:53
+T064,P035,IV Therapy,2025-07-15 03:42:53,Dr. Michael Chen,Standard iv therapy procedure,122.00,2025-07-15 03:42:53
+T065,P001,Consultation,2025-08-18 14:10:53,Dr. Stephanie Robinson,Standard consultation procedure,35.00,2025-08-18 14:10:53
+T066,P006,Follow-up,2025-05-29 21:56:53,Dr. David Kim,Standard follow-up procedure,184.00,2025-05-29 21:56:53
+T067,P031,Lab Work,2025-05-30 05:45:53,Dr. Sarah Williams,Standard lab work procedure,189.00,2025-05-30 05:45:53
+T068,P024,Surgery,2025-07-01 07:17:53,Dr. Amanda White,Emergency surgery - successful,12150.00,2025-07-01 07:17:53
+T069,P025,X-Ray,2025-06-12 20:38:53,Dr. James Harris,Standard x-ray procedure,108.00,2025-06-12 20:38:53
+T070,P046,Emergency Procedure,2025-08-01 02:47:53,Dr. Amanda White,Standard emergency procedure procedure,14170.00,2025-08-01 02:47:53
+T071,P043,Lab Work,2025-06-01 13:42:53,Dr. Stephanie Robinson,Standard lab work procedure,189.00,2025-06-01 13:42:53
+T072,P022,Emergency Procedure,2025-07-09 21:03:53,Dr. David Kim,Standard emergency procedure procedure,11127.00,2025-07-09 21:03:53
+T073,P007,Surgery,2025-07-29 03:00:53,Dr. Christopher Lee,Emergency surgery - successful,14070.00,2025-07-29 03:00:53
+T074,P006,Emergency Procedure,2025-05-30 11:00:53,Dr. Daniel Lewis,Standard emergency procedure procedure,14145.00,2025-05-30 11:00:53
+T075,P041,Rehabilitation,2025-05-30 00:00:53,Dr. Emily Rodriguez,Standard rehabilitation procedure,69.00,2025-05-30 00:00:53
+T076,P022,Emergency Procedure,2025-07-08 21:22:53,Dr. Lisa Thompson,Standard emergency procedure procedure,11069.00,2025-07-08 21:22:53
+T077,P011,X-Ray,2025-06-26 04:41:53,Dr. Amanda White,Standard x-ray procedure,246.00,2025-06-26 04:41:53
+T078,P046,Physical Therapy,2025-07-30 08:20:53,Dr. John Smith,Standard physical therapy procedure,168.00,2025-07-30 08:20:53
+T079,P023,Consultation,2025-06-29 00:47:53,Dr. Robert Garcia,Standard consultation procedure,34.00,2025-06-29 00:47:53
+T080,P019,Physical Therapy,2025-08-17 16:54:53,Dr. Amanda White,Standard physical therapy procedure,73.00,2025-08-17 16:54:53
+T081,P008,Consultation,2025-08-16 01:03:53,Dr. James Harris,Standard consultation procedure,30.00,2025-08-16 01:03:53
+T082,P044,IV Therapy,2025-06-20 08:44:53,Dr. Christopher Lee,Standard iv therapy procedure,171.00,2025-06-20 08:44:53
+T083,P037,Rehabilitation,2025-06-30 01:01:53,Dr. Emily Rodriguez,Standard rehabilitation procedure,100.00,2025-06-30 01:01:53
+T084,P015,Blood Test,2025-07-25 04:15:53,Dr. Michael Chen,Standard blood test procedure,168.00,2025-07-25 04:15:53
+T085,P007,Surgery,2025-07-29 00:58:53,Dr. Daniel Lewis,Emergency surgery - successful,12521.00,2025-07-29 00:58:53
+T086,P008,Lab Work,2025-08-15 12:13:53,Dr. John Smith,Standard lab work procedure,180.00,2025-08-15 12:13:53
+T087,P003,Medication Prescription,2025-08-14 16:02:53,Dr. David Kim,Prescribed medication for migraine,86.00,2025-08-14 16:02:53
+T088,P026,Psychotherapy,2025-08-03 10:17:53,Dr. Stephanie Robinson,Standard psychotherapy procedure,136.00,2025-08-03 10:17:53
+T089,P039,Lab Work,2025-07-31 01:26:53,Dr. Michelle Clark,Standard lab work procedure,132.00,2025-07-31 01:26:53
+T090,P007,Lab Work,2025-07-28 13:30:53,Dr. Sarah Williams,Standard lab work procedure,126.00,2025-07-28 13:30:53
+T091,P008,Psychotherapy,2025-08-14 08:32:53,Dr. Daniel Lewis,Standard psychotherapy procedure,197.00,2025-08-14 08:32:53
+T092,P035,Physical Therapy,2025-07-14 13:22:53,Dr. Stephanie Robinson,Standard physical therapy procedure,197.00,2025-07-14 13:22:53
+T093,P006,Lab Work,2025-05-30 15:40:53,Dr. Michael Chen,Standard lab work procedure,116.00,2025-05-30 15:40:53
+T094,P032,Rehabilitation,2025-05-30 00:31:53,Dr. Daniel Lewis,Standard rehabilitation procedure,139.00,2025-05-30 00:31:53
+T095,P024,Follow-up,2025-06-30 11:14:53,Dr. Michelle Clark,Standard follow-up procedure,60.00,2025-06-30 11:14:53
+T096,P023,Psychotherapy,2025-06-27 19:26:53,Dr. Emily Rodriguez,Standard psychotherapy procedure,165.00,2025-06-27 19:26:53
+T097,P039,Medication Prescription,2025-07-31 11:40:53,Dr. Sarah Williams,Prescribed medication for dehydration,176.00,2025-07-31 11:40:53
+T098,P046,IV Therapy,2025-07-30 21:02:53,Dr. Michelle Clark,Standard iv therapy procedure,116.00,2025-07-30 21:02:53
+T099,P041,Blood Test,2025-05-28 06:40:53,Dr. Lisa Thompson,Standard blood test procedure,73.00,2025-05-28 06:40:53
+T100,P027,Blood Test,2025-06-01 15:38:53,Dr. Lisa Thompson,Standard blood test procedure,169.00,2025-06-01 15:38:53

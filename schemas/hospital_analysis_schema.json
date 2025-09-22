@@ -1,0 +1,68 @@
+[
+  {
+    "name": "patient_id",
+    "type": "STRING",
+    "mode": "REQUIRED",
+    "description": "Unique identifier for the patient"
+  },
+  {
+    "name": "age",
+    "type": "INTEGER",
+    "mode": "REQUIRED",
+    "description": "Patient's age"
+  },
+  {
+    "name": "gender",
+    "type": "STRING",
+    "mode": "REQUIRED",
+    "description": "Patient's gender"
+  },
+  {
+    "name": "condition",
+    "type": "STRING",
+    "mode": "REQUIRED",
+    "description": "Medical condition"
+  },
+  {
+    "name": "procedure",
+    "type": "STRING",
+    "mode": "REQUIRED",
+    "description": "Treatment procedure"
+  },
+  {
+    "name": "cost",
+    "type": "FLOAT64",
+    "mode": "REQUIRED",
+    "description": "Treatment cost"
+  },
+  {
+    "name": "length_of_stay",
+    "type": "INTEGER",
+    "mode": "REQUIRED",
+    "description": "Length of hospital stay in days"
+  },
+  {
+    "name": "readmission",
+    "type": "STRING",
+    "mode": "REQUIRED",
+    "description": "Readmission status (Yes/No)"
+  },
+  {
+    "name": "outcome",
+    "type": "STRING",
+    "mode": "REQUIRED",
+    "description": "Treatment outcome"
+  },
+  {
+    "name": "satisfaction",
+    "type": "INTEGER",
+    "mode": "REQUIRED",
+    "description": "Patient satisfaction rating (1-5)"
+  },
+  {
+    "name": "created_at",
+    "type": "TIMESTAMP",
+    "mode": "REQUIRED",
+    "description": "Record creation timestamp"
+  }
+]

@@ -1,0 +1,50 @@
+[
+  {
+    "name": "treatment_id",
+    "type": "STRING",
+    "mode": "REQUIRED",
+    "description": "Unique identifier for the treatment"
+  },
+  {
+    "name": "patient_id",
+    "type": "STRING",
+    "mode": "REQUIRED",
+    "description": "Reference to patient ID"
+  },
+  {
+    "name": "treatment_type",
+    "type": "STRING",
+    "mode": "REQUIRED",
+    "description": "Type of treatment provided"
+  },
+  {
+    "name": "treatment_date",
+    "type": "DATETIME",
+    "mode": "REQUIRED",
+    "description": "Date and time of treatment"
+  },
+  {
+    "name": "doctor_name",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "Name of the treating doctor"
+  },
+  {
+    "name": "treatment_notes",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "Additional notes about the treatment"
+  },
+  {
+    "name": "cost",
+    "type": "FLOAT64",
+    "mode": "NULLABLE",
+    "description": "Cost of the treatment"
+  },
+  {
+    "name": "created_at",
+    "type": "TIMESTAMP",
+    "mode": "REQUIRED",
+    "description": "Record creation timestamp"
+  }
+]
