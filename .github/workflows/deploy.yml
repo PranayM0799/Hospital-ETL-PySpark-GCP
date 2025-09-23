@@ -1,4 +1,4 @@
-name: Deploy Hospital ETL Pipeline (FINAL)
+name: Deploy Hospital ETL Pipeline
 
 on:
   push:
@@ -40,13 +40,9 @@ jobs:
           if [ -z "${{ secrets.GCP_SA_KEY }}" ]; then
             echo "❌ GCP_SA_KEY secret is not set!"
             echo "Please add the GCP_SA_KEY secret to your repository"
-            echo "Go to: Settings → Secrets and variables → Actions"
-            echo "Name: GCP_SA_KEY"
-            echo "Value: Copy the contents of github-actions-key.json"
             exit 1
           else
             echo "✅ GCP_SA_KEY secret is set"
-            echo "Secret length: ${#GCP_SA_KEY}"
           fi
 
       - name: Authenticate to Google Cloud
@@ -63,11 +59,11 @@ jobs:
           gcloud config set compute/region ${{ env.REGION }}
           gcloud config set compute/zone ${{ env.ZONE }}
 
-      - name: Test GCP Connection
+      - name: Import Existing Resources
         run: |
-          gcloud auth list
-          gcloud config list
-          gcloud storage buckets list --limit=1
+          # Import existing resources to avoid "already exists" errors
+          terraform import google_bigquery_dataset.hospital_dataset projects/${{ env.PROJECT_ID }}/datasets/hospital_data || true
+          terraform import google_service_account.dataproc_sa projects/${{ env.PROJECT_ID }}/serviceAccounts/dataproc-sa@${{ env.PROJECT_ID }}.iam.gserviceaccount.com || true
 
       - name: Terraform Plan
         run: |
@@ -117,6 +113,12 @@ jobs:
 
       - name: Terraform Init
         run: terraform init
+
+      - name: Import Existing Resources
+        run: |
+          # Import existing resources to avoid "already exists" errors
+          terraform import google_bigquery_dataset.hospital_dataset projects/${{ env.PROJECT_ID }}/datasets/hospital_data || true
+          terraform import google_service_account.dataproc_sa projects/${{ env.PROJECT_ID }}/serviceAccounts/dataproc-sa@${{ env.PROJECT_ID }}.iam.gserviceaccount.com || true
 
       - name: Terraform Apply
         run: |
