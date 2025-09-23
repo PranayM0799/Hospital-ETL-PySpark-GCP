@@ -192,10 +192,10 @@ jobs:
         run: |
           gcloud dataproc clusters create hospital-etl-cluster \
             --region=${{ env.REGION }} \
-            --master-machine-type=e2-standard-2 \
+            --master-machine-type=e2-standard-1 \
             --master-boot-disk-size=50GB \
-            --num-workers=1 \
-            --worker-machine-type=e2-standard-2 \
+            --num-workers=2 \
+            --worker-machine-type=e2-standard-1 \
             --worker-boot-disk-size=50GB \
             --image-version=2.1-debian11 \
             --optional-components=JUPYTER \
