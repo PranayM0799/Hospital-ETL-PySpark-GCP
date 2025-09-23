@@ -130,6 +130,29 @@ jobs:
         with:
           terraform_version: '1.6.0'
 
+      - name: Check GCP_SA_KEY Secret
+        run: |
+          if [ -z "${{ secrets.GCP_SA_KEY }}" ]; then
+            echo "❌ GCP_SA_KEY secret is not set!"
+            echo "Please add the GCP service account key to GitHub secrets"
+            exit 1
+          else
+            echo "✅ GCP_SA_KEY secret is set"
+          fi
+
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.GCP_SA_KEY }}
+
+      - name: Setup Google Cloud CLI
+        uses: google-github-actions/setup-gcloud@v2
+        with:
+          version: 'latest'
+
+      - name: Configure gcloud
+        run: gcloud config set project pyspark-469619
+
       - name: Terraform Format Check
         run: terraform fmt -check -recursive
 
