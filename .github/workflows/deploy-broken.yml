@@ -1,4 +1,4 @@
-name: Deploy Hospital ETL Pipeline (FINAL)
+name: Deploy Hospital ETL Pipeline (FIXED)
 
 on:
   push:
@@ -35,7 +35,7 @@ jobs:
       - name: Terraform Validate
         run: terraform validate
 
-      - name: Check GCP_SA_KEY Secret
+      - name: Check if GCP_SA_KEY is set
         run: |
           if [ -z "${{ secrets.GCP_SA_KEY }}" ]; then
             echo "❌ GCP_SA_KEY secret is not set!"
@@ -46,7 +46,6 @@ jobs:
             exit 1
           else
             echo "✅ GCP_SA_KEY secret is set"
-            echo "Secret length: ${#GCP_SA_KEY}"
           fi
 
       - name: Authenticate to Google Cloud
@@ -62,12 +61,6 @@ jobs:
           gcloud config set project ${{ env.PROJECT_ID }}
           gcloud config set compute/region ${{ env.REGION }}
           gcloud config set compute/zone ${{ env.ZONE }}
-
-      - name: Test GCP Connection
-        run: |
-          gcloud auth list
-          gcloud config list
-          gcloud storage buckets list --limit=1
 
       - name: Terraform Plan
         run: |
@@ -92,10 +85,11 @@ jobs:
         with:
           terraform_version: ${{ env.TF_VERSION }}
 
-      - name: Check GCP_SA_KEY Secret
+      - name: Check if GCP_SA_KEY is set
         run: |
           if [ -z "${{ secrets.GCP_SA_KEY }}" ]; then
             echo "❌ GCP_SA_KEY secret is not set!"
+            echo "Please add the GCP_SA_KEY secret to your repository"
             exit 1
           else
             echo "✅ GCP_SA_KEY secret is set"
@@ -142,7 +136,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Check GCP_SA_KEY Secret
+      - name: Check if GCP_SA_KEY is set
         run: |
           if [ -z "${{ secrets.GCP_SA_KEY }}" ]; then
             echo "❌ GCP_SA_KEY secret is not set!"
