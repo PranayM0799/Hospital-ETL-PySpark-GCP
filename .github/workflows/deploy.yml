@@ -10,7 +10,7 @@ on:
 env:
   PROJECT_ID: pyspark-469619
   REGION: us-central1
-  ZONE: us-central1-a
+  ZONE: us-central1-b
   TF_VERSION: '1.6.0'
 
 jobs:
