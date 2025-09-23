@@ -127,24 +127,11 @@ resource "google_service_account" "dataproc_sa" {
   display_name = "Service Account for Dataproc"
 }
 
-# Grant necessary roles to Dataproc service account
-resource "google_project_iam_member" "dataproc_storage_admin" {
-  project = var.project_id
-  role    = "roles/storage.admin"
-  member  = "serviceAccount:${google_service_account.dataproc_sa.email}"
-}
-
-resource "google_project_iam_member" "dataproc_bigquery_admin" {
-  project = var.project_id
-  role    = "roles/bigquery.admin"
-  member  = "serviceAccount:${google_service_account.dataproc_sa.email}"
-}
-
-resource "google_project_iam_member" "dataproc_worker" {
-  project = var.project_id
-  role    = "roles/dataproc.worker"
-  member  = "serviceAccount:${google_service_account.dataproc_sa.email}"
-}
+# Note: IAM roles are already granted to dataproc-sa service account
+# The following roles are already assigned:
+# - roles/storage.admin
+# - roles/bigquery.admin  
+# - roles/dataproc.worker
 
 # Output important values
 output "raw_data_bucket" {

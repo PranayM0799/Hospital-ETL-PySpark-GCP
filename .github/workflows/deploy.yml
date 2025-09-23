@@ -64,6 +64,9 @@ jobs:
           # Import existing resources to avoid "already exists" errors
           terraform import google_bigquery_dataset.hospital_dataset projects/${{ env.PROJECT_ID }}/datasets/hospital_data || true
           terraform import google_service_account.dataproc_sa projects/${{ env.PROJECT_ID }}/serviceAccounts/dataproc-sa@${{ env.PROJECT_ID }}.iam.gserviceaccount.com || true
+          terraform import google_bigquery_table.patient_table projects/${{ env.PROJECT_ID }}/datasets/hospital_data/tables/patients || true
+          terraform import google_bigquery_table.treatment_table projects/${{ env.PROJECT_ID }}/datasets/hospital_data/tables/treatments || true
+          terraform import google_bigquery_table.hospital_analysis_table projects/${{ env.PROJECT_ID }}/datasets/hospital_data/tables/hospital_analysis || true
 
       - name: Terraform Plan
         run: |
@@ -119,6 +122,9 @@ jobs:
           # Import existing resources to avoid "already exists" errors
           terraform import google_bigquery_dataset.hospital_dataset projects/${{ env.PROJECT_ID }}/datasets/hospital_data || true
           terraform import google_service_account.dataproc_sa projects/${{ env.PROJECT_ID }}/serviceAccounts/dataproc-sa@${{ env.PROJECT_ID }}.iam.gserviceaccount.com || true
+          terraform import google_bigquery_table.patient_table projects/${{ env.PROJECT_ID }}/datasets/hospital_data/tables/patients || true
+          terraform import google_bigquery_table.treatment_table projects/${{ env.PROJECT_ID }}/datasets/hospital_data/tables/treatments || true
+          terraform import google_bigquery_table.hospital_analysis_table projects/${{ env.PROJECT_ID }}/datasets/hospital_data/tables/hospital_analysis || true
 
       - name: Terraform Apply
         run: |
