@@ -194,9 +194,7 @@ jobs:
             --region=${{ env.REGION }} \
             --master-machine-type=e2-standard-1 \
             --master-boot-disk-size=50GB \
-            --num-workers=2 \
-            --worker-machine-type=e2-standard-1 \
-            --worker-boot-disk-size=50GB \
+            --single-node \
             --image-version=2.1-debian11 \
             --optional-components=JUPYTER \
             --enable-component-gateway \
