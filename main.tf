@@ -29,8 +29,8 @@ resource "google_project_service" "required_apis" {
     "iam.googleapis.com",
     "dataproc.googleapis.com"
   ])
-  
-  service = each.value
+
+  service                    = each.value
   disable_dependent_services = false
 }
 
@@ -39,11 +39,11 @@ resource "google_storage_bucket" "raw_data_bucket" {
   name          = "hospital-raw-data-${random_id.bucket_suffix.hex}"
   location      = "US"
   force_destroy = true
-  
+
   versioning {
     enabled = true
   }
-  
+
   lifecycle_rule {
     condition {
       age = 30
@@ -59,7 +59,7 @@ resource "google_storage_bucket" "processed_data_bucket" {
   name          = "hospital-processed-data-${random_id.bucket_suffix.hex}"
   location      = "US"
   force_destroy = true
-  
+
   versioning {
     enabled = true
   }
@@ -75,7 +75,7 @@ resource "google_bigquery_dataset" "hospital_dataset" {
   dataset_id  = "hospital_data"
   description = "Dataset for hospital ETL data"
   location    = "US"
-  
+
   labels = {
     environment = "production"
     project     = "hospital-etl"
@@ -86,12 +86,12 @@ resource "google_bigquery_dataset" "hospital_dataset" {
 resource "google_bigquery_table" "patient_table" {
   dataset_id = google_bigquery_dataset.hospital_dataset.dataset_id
   table_id   = "patients"
-  
+
   schema = file("${path.module}/schemas/patient_schema.json")
-  
+
   labels = {
     environment = "production"
-    table_type = "patient_data"
+    table_type  = "patient_data"
   }
 }
 
@@ -99,12 +99,12 @@ resource "google_bigquery_table" "patient_table" {
 resource "google_bigquery_table" "treatment_table" {
   dataset_id = google_bigquery_dataset.hospital_dataset.dataset_id
   table_id   = "treatments"
-  
+
   schema = file("${path.module}/schemas/treatment_schema.json")
-  
+
   labels = {
     environment = "production"
-    table_type = "treatment_data"
+    table_type  = "treatment_data"
   }
 }
 
@@ -112,12 +112,12 @@ resource "google_bigquery_table" "treatment_table" {
 resource "google_bigquery_table" "hospital_analysis_table" {
   dataset_id = google_bigquery_dataset.hospital_dataset.dataset_id
   table_id   = "hospital_analysis"
-  
+
   schema = file("${path.module}/schemas/hospital_analysis_schema.json")
-  
+
   labels = {
     environment = "production"
-    table_type = "analysis_data"
+    table_type  = "analysis_data"
   }
 }
 
