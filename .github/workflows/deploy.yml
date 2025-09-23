@@ -52,6 +52,8 @@ jobs:
 
       - name: Setup Google Cloud CLI
         uses: google-github-actions/setup-gcloud@v2
+        with:
+          version: 'latest'
 
       - name: Configure gcloud
         run: |
@@ -107,6 +109,8 @@ jobs:
 
       - name: Setup Google Cloud CLI
         uses: google-github-actions/setup-gcloud@v2
+        with:
+          version: 'latest'
 
       - name: Configure gcloud
         run: |
@@ -166,6 +170,8 @@ jobs:
 
       - name: Setup Google Cloud CLI
         uses: google-github-actions/setup-gcloud@v2
+        with:
+          version: 'latest'
 
       - name: Configure gcloud
         run: |
