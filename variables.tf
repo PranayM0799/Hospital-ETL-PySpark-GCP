@@ -12,9 +12,9 @@ variable "region" {
 }
 
 variable "zone" {
-  description = "The GCP zone for resources"
+  description = "The GCP zone for resources (auto-zone for Dataproc)"
   type        = string
-  default     = "us-central1-b"
+  default     = "us-central1"
 }
 
 variable "environment" {
