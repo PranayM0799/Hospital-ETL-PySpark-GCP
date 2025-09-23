@@ -89,3 +89,4 @@ htmlcov/
 .mypy_cache/
 .dmypy.json
 dmypy.json
+github-actions-key.json
