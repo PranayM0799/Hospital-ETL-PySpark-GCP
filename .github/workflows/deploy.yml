@@ -52,6 +52,7 @@ jobs:
 
       - name: Setup Google Cloud CLI
         uses: google-github-actions/setup-gcloud@v2
+
         with:
           version: 'latest'
 
@@ -144,6 +145,11 @@ jobs:
           echo "raw_bucket=$(terraform output -raw raw_data_bucket)" >> $GITHUB_OUTPUT
           echo "processed_bucket=$(terraform output -raw processed_data_bucket)" >> $GITHUB_OUTPUT
           echo "dataset_id=$(terraform output -raw bigquery_dataset)" >> $GITHUB_OUTPUT
+
+    outputs:
+      raw_bucket: ${{ steps.terraform-outputs.outputs.raw_bucket }}
+      processed_bucket: ${{ steps.terraform-outputs.outputs.processed_bucket }}
+      dataset_id: ${{ steps.terraform-outputs.outputs.dataset_id }}
 
   run-etl-pipeline:
     name: Run ETL Pipeline
