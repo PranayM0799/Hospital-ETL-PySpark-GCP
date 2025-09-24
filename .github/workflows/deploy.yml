@@ -195,7 +195,7 @@ jobs:
             --master-machine-type=n1-standard-2 \
             --master-boot-disk-size=50GB \
             --single-node \
-            --image-version=2.1-debian11 \
+            --image-version=latest \
             --optional-components=JUPYTER \
             --enable-component-gateway \
             --metadata="PIP_PACKAGES=google-cloud-storage google-cloud-bigquery pyspark==3.4.0" \
