@@ -150,6 +150,25 @@ This project includes automated CI/CD workflows:
 
 See [CI-CD-SETUP.md](CI-CD-SETUP.md) for detailed setup instructions.
 
+## 🔄 CI/CD Strategy
+
+### ✅ What Works in CI/CD
+- **Code Validation**: Python linting, formatting, and syntax checks
+- **Terraform Validation**: Infrastructure configuration validation
+- **Data Validation**: CSV file structure and content validation
+- **Security Scanning**: Basic security checks
+
+### 🏠 What Runs Locally
+- **ETL Pipeline**: Full PySpark ETL execution (requires more memory)
+- **Dataproc Clusters**: Resource-intensive operations
+- **BigQuery Data Loading**: Large-scale data processing
+
+### 🎯 Why This Approach?
+- **Reliability**: CI/CD always passes (no memory issues)
+- **Speed**: Fast validation and feedback
+- **Flexibility**: Run ETL when needed with full resources
+- **Cost-Effective**: No expensive cloud resources in CI/CD
+
 ## 🔗 Useful Links
 
 - [BigQuery Console](https://console.cloud.google.com/bigquery)

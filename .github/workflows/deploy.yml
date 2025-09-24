@@ -1,11 +1,13 @@
-name: Deploy Hospital ETL Pipeline
+# DISABLED: This workflow causes memory issues in CI/CD
+# Use validate.yml for CI/CD and run ETL locally with deploy_pyspark.sh
+name: Deploy Hospital ETL Pipeline (DISABLED)
 
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-  workflow_dispatch:
+# on:
+#   push:
+#     branches: [ main ]
+#   pull_request:
+#     branches: [ main ]
+#   workflow_dispatch:
 
 env:
   PROJECT_ID: pyspark-469619
