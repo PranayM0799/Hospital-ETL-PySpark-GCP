@@ -9,13 +9,25 @@ A complete **PySpark-based ETL pipeline** for processing hospital data on Google
 - Terraform installed
 - Python 3.7+ (for local development)
 
-### Deploy and Run
+### Option 1: Local Deployment (Recommended)
 ```bash
 # Make the deployment script executable
 chmod +x deploy_pyspark.sh
 
 # Deploy the entire pipeline
 ./deploy_pyspark.sh
+```
+
+### Option 2: CI/CD Validation
+- **GitHub Actions** automatically validates code quality, Terraform configuration, and data files
+- **No ETL execution** in CI/CD (avoids memory issues)
+- **Manual ETL** runs locally when needed
+
+### Option 3: GitHub Setup
+```bash
+# Set up GitHub Actions (one-time setup)
+chmod +x setup-github-secrets.sh
+./setup-github-secrets.sh
 ```
 
 ## 📊 What This Does
@@ -49,14 +61,20 @@ chmod +x deploy_pyspark.sh
 │   ├── patient_schema.json           # BigQuery schema for patients
 │   ├── treatment_schema.json         # BigQuery schema for treatments
 │   └── hospital_analysis_schema.json # BigQuery schema for hospital analysis
-├── analysis/
-│   └── hospital_insights.py          # Comprehensive analysis script
+├── .github/workflows/
+│   ├── validate.yml                  # CI/CD validation workflow
+│   ├── test.yml                      # Quality checks workflow
+│   └── deploy.yml                    # ETL deployment (disabled)
 ├── main.tf                           # Terraform infrastructure
 ├── variables.tf                      # Terraform variables
 ├── run_etl.py                       # PySpark ETL script
-├── deploy_pyspark.sh                # Deployment script
-├── data_quality_check.py            # Data quality analysis
-└── README.md                        # This file
+├── deploy_pyspark.sh                # Local deployment script
+├── setup-github-secrets.sh          # GitHub Actions setup
+├── requirements.txt                  # Python dependencies
+├── README.md                        # This file
+├── Hospital_ETL_Project_Documentation.md    # Detailed documentation
+├── Hospital_ETL_Project_Documentation.docx  # Word documentation
+└── CI-CD-SETUP.md                   # CI/CD setup instructions
 ```
 
 ## 🔧 Configuration
@@ -134,19 +152,24 @@ terraform destroy -auto-approve
 - ✅ **Cost-optimized** infrastructure
 - ✅ **Automated deployment** with Terraform
 - ✅ **Sample data** included for testing
-- ✅ **CI/CD Pipeline** with GitHub Actions
+- ✅ **CI/CD Pipeline** with GitHub Actions (validation only)
 - ✅ **Automated testing** and quality checks
-- ✅ **Scheduled ETL** runs daily
+- ✅ **Local ETL execution** with full resources
 - ✅ **Security scanning** and monitoring
+- ✅ **Clean project structure** (no unwanted files)
+- ✅ **Comprehensive documentation** (Markdown + Word)
 
 ## 🚀 CI/CD Pipeline
 
 This project includes automated CI/CD workflows:
 
-- **🔄 Deploy**: Automatic deployment on push to main
-- **🧪 Test**: Data quality checks and validation
-- **⏰ Scheduled**: Daily ETL runs at 2 AM UTC
-- **🔒 Security**: Automated vulnerability scanning
+- **✅ Validate Project**: Code quality, Terraform validation, data validation
+- **✅ Test and Quality Checks**: Python linting, formatting, security scanning
+- **❌ Deploy Hospital ETL Pipeline**: Disabled (causes memory issues in CI/CD)
+
+### 🎯 Current Status
+- **CI/CD**: ✅ **PASSING** - Fast validation and quality checks
+- **ETL Pipeline**: 🏠 **Local Only** - Run with `./deploy_pyspark.sh`
 
 See [CI-CD-SETUP.md](CI-CD-SETUP.md) for detailed setup instructions.
 
@@ -178,6 +201,4 @@ See [CI-CD-SETUP.md](CI-CD-SETUP.md) for detailed setup instructions.
 
 ---
 
-**Built with ❤️ using PySpark, BigQuery, Google Cloud Platform, and GitHub Actions**# Testing GitHub Actions Secret Fix
-# Testing GitHub Actions with Secret
-# Terraform state fixed
+**Built with ❤️ using PySpark, BigQuery, Google Cloud Platform, and GitHub Actions**
