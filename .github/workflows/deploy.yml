@@ -192,10 +192,11 @@ jobs:
         run: |
           gcloud dataproc clusters create hospital-etl-cluster \
             --region=${{ env.REGION }} \
-            --master-machine-type=e2-micro \
+            --master-machine-type=e2-medium \
             --master-boot-disk-size=50GB \
             --single-node \
             --image-version=2.0-debian10 \
+            --zone=us-central1-c \
             --optional-components=JUPYTER \
             --enable-component-gateway \
             --metadata="PIP_PACKAGES=google-cloud-storage google-cloud-bigquery pyspark==3.4.0" \
